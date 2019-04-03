@@ -5,14 +5,23 @@
     "beforeStage": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "git": {
-    "commit": false
+    "commit": false,
+    "requireCleanWorkingDir": false,
+    "requireUpstream": false
   },
   "github": {
-    "release": true
+    "release": true,
+    "assets": [
+      "examples",
+      "esm",
+      "umd",
+      "README.md",
+      "LICENSE.md",
+      "CHANGELOG.md"
+    ]
   },
   "npm": {
-    "release": true,
-    "tag": "next",
-    "assets": ["examples", "module", "umd", "README.md"]
+    "publish": true,
+    "tag": "next"
   }
 }

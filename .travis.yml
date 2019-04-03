@@ -16,18 +16,21 @@ env: NODE_ENV=test
 
 # Publish to NPM only.
 before_script: npm prune -d
-script: npm test -d
+script:
+  - npm test -d
+  - npm run release
+# Publish to NPM
 deploy:
-  provider: script
+  provider: npm
+  email: thezimmee@gmail.com
+  api_key: $NPM_TOKEN
   skip_cleanup: true
-  script:
-    - npm run release -- -n
+
 # deploy:
 #   provider: npm
 #   email: thezimmee@gmail.com
 #   api_key: $NPM_TOKEN
 #   skip_cleanup: true
-# # release-it to NPM and GitHub.
 # Semantic release to NPM and GitHub.
 # deploy:
 #   provider: script

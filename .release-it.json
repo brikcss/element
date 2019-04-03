@@ -1,0 +1,17 @@
+{
+  "increment": "conventional:angular",
+  "scripts": {
+    "changelog": "npx conventional-changelog -p angular -u | tail -n +3"
+  },
+  "git": {
+    "commit": false
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "release": true,
+    "tag": "next",
+    "assets": ["examples", "module", "umd", "README.md"]
+  }
+}

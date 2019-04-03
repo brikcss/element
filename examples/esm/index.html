@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Brik Element</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-size: 16px;
+      font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    my-element {
+      color: brown;
+    }
+    my-element h1 {
+      color:; red;
+    }
+    pre {
+      background-color: hsl(0, 0%, 85%);
+      border-radius: 0.25rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <my-element type="h1">Brik Element with JS modules</my-element>
+  <my-element type="p">With a custom build/bundler tool, access Brik Element with: <pre><code>import BrikElement from '@brikcss/brik-element'</code></pre></my-element>
+  <my-element type="p">For direct use in modern browsers, you must use the full path: <pre><code>import BrikElement from 'node_modules/@brikcss/brik-element/esm/brik-element.js'</code></pre></my-element>
+  
+  <!-- Use as a module. To support legacy browsers, either 1) compile your `app.js` with a
+  build/bundler tool; or 2) create a separate `app.js` that uses the umd build of BrikElement. -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

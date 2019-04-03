@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Brik Element</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-size: 16px;
+      font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    my-element {
+      color: brown;
+    }
+    my-element h1 {
+      color:; red;
+    }
+    pre {
+      background-color: hsl(0, 0%, 85%);
+      border-radius: 0.25rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <my-element type="h1">Brik Element as a global variable/UMD</my-element>
+  <my-element type="p">Brik Element can be accessed at: <pre><code>window.brikcss.BrikElement</code></pre></my-element>
+
+  <!-- Custom Elements polyfill. -->
+  <script>/* eslint-disable */this.customElements || document.write('<script src="//unpkg.com/document-register-element"><\x2fscript>')</script>
+  <script src="//unpkg.com/built-in-element"></script>
+  <!-- For modern browsers that support modules. -->
+  <script type="module" src="../../umd/brik-element.js"></script>
+  <!-- For legacy browsers that do not support modules. -->
+  <script nomodule src="../../umd/brik-element.legacy.js"></script>
+  <!-- For all browsers. -->
+  <script src="app.js" defer></script>
+</body>
+</html>

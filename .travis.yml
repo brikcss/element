@@ -1,7 +1,7 @@
 #! .travis.yml | @author Brikcss (https://github.com/brikcss) | @reference (https://docs.travis-ci.com/user/customizing-the-build) #
 
 language: node_js
-node_js: '9'
+node_js: "9"
 
 cache:
   bundler: true
@@ -16,12 +16,18 @@ env: NODE_ENV=test
 
 # Publish to NPM only.
 before_script: npm prune -d
-script: npm test -d && npm run cov -d
+script: npm test -d
 deploy:
-  provider: npm
-  email: thezimmee@gmail.com
-  api_key: $NPM_TOKEN
+  provider: script
   skip_cleanup: true
+  script:
+    - npm run release -- -n
+# deploy:
+#   provider: npm
+#   email: thezimmee@gmail.com
+#   api_key: $NPM_TOKEN
+#   skip_cleanup: true
+# # release-it to NPM and GitHub.
 # Semantic release to NPM and GitHub.
 # deploy:
 #   provider: script

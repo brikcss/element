@@ -8,6 +8,7 @@
     "@brikcss/git-hooks": "^2.1.2",
     "browser-sync": "^2.26.3",
     "codacy-coverage": "^3.4.0",
+    "conventional-changelog-cli": "^2.0.12",
     "coveralls": "^3.0.3",
     "document-register-element": "^1.13.1",
     "jest": "^24.5.0",

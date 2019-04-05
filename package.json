@@ -1,6 +1,6 @@
 {
   "name": "@brikcss/element",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Brikcss custom UI element, each an extension of native HTML elements. Makes building native web components easier and feature-rich.",
   "dependencies": {},
   "devDependencies": {

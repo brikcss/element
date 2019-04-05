@@ -114,10 +114,16 @@ _**Important:** If you wish to support browsers that don't natively support cust
     ```html
     <!-- 1) Include brik-element.js for modern browsers with
             type="module": -->
-    <script type="module" src="node_modules/@brikcss/element/dist/umd/brik-element.js"></script>
+    <script
+        type="module"
+        src="node_modules/@brikcss/element/dist/umd/brik-element.js"
+    ></script>
     <!-- 2) To support legacy browsers, include the legacy build of
             brik-element.js and add the `nomodule` attribute: -->
-    <script nomodule src="node_modules/@brikcss/element/dist/umd/brik-element.legacy.js"></script>
+    <script
+        nomodule
+        src="node_modules/@brikcss/element/dist/umd/brik-element.legacy.js"
+    ></script>
     <!-- 3) Include app.js with defer attribute to ensure it loads
             last: -->
     <script src="app.js" defer></script>

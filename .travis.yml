@@ -1,7 +1,7 @@
 #! .travis.yml | @author Brikcss (https://github.com/brikcss) | @reference (https://docs.travis-ci.com/user/customizing-the-build) #
 
 language: node_js
-node_js: "9"
+node_js: '9'
 
 cache:
   bundler: true
@@ -29,8 +29,7 @@ deploy:
     file_glob: true
     file:
       - examples/**/*
-      - esm/**/*
-      - umd/**/*
+      - dist/**/*
       - README.md
       - LICENSE.md
       - CHANGELOG.md

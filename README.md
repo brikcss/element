@@ -80,10 +80,13 @@ _**Important:** If you wish to support browsers that don't natively support cust
 
     ```html
     <!-- 1) Include app.js for modern browsers: -->
+    <!--    NOTE: Even though this is `type="module"`, for performance
+            reasons, it is recommended to use a build/bundler tool to
+            prebundle app.js. -->
     <script type="module" src="app.js"></script>
-    <!-- 2) To support legacy browsers, include a version of app.js transpiled
-    specifically for legacy browsers and make sure to add the `nomodule`
-    attribute (modern browsers will not load this): -->
+    <!-- 2) To support legacy browsers, include a version of app.js
+    transpiled specifically for legacy browsers and make sure to add
+    the `nomodule` attribute (modern browsers will not load this): -->
     <script nomodule src="app.legacy.js"></script>
     ```
 
@@ -91,11 +94,12 @@ _**Important:** If you wish to support browsers that don't natively support cust
 
     ```js
     // 1) Import:
-    //    Note: Browsers that support modules do not recognize node modules,
-    //    so for direct use in browsers (i.e., no build/bundler step), you must
-    //    import a full relative or absolute path.
+    //    Note: Browsers that support modules do not recognize node
+    //    modules, so for direct use in browsers (i.e., no build/bundler
+    //    step), you must import a full relative or absolute path.
     import { BrikElement } from "@brikcss/element";
-    // 2) Extend BrikElement with your class/constructor and (optionally) mixins:
+    // 2) Extend BrikElement with your class/constructor and (optionally)
+    //    mixins:
     class MyElement extends BrikElement().with(...mixins) {...}
     // 3) Define the custom element:
     MyElement.define('my-element')
@@ -108,11 +112,14 @@ _**Important:** If you wish to support browsers that don't natively support cust
     _index.html:_
 
     ```html
-    <!-- 1) Include brik-element.js for modern browsers with type="module": -->
-    <script type="module" src="node_modules/@brikcss/element/umd/brik-element.js"></script>
-    <!-- 2) To support legacy browsers, include the legacy build of brik-element.js and add the `nomodule` attribute: -->
-    <script nomodule src="node_modules/@brikcss/element/umd/brik-element.legacy.js"></script>
-    <!-- 3) Include app.js with defer attribute to ensure it loads last: -->
+    <!-- 1) Include brik-element.js for modern browsers with
+            type="module": -->
+    <script type="module" src="node_modules/@brikcss/element/dist/umd/brik-element.js"></script>
+    <!-- 2) To support legacy browsers, include the legacy build of
+            brik-element.js and add the `nomodule` attribute: -->
+    <script nomodule src="node_modules/@brikcss/element/dist/umd/brik-element.legacy.js"></script>
+    <!-- 3) Include app.js with defer attribute to ensure it loads
+            last: -->
     <script src="app.js" defer></script>
     ```
 
@@ -121,7 +128,8 @@ _**Important:** If you wish to support browsers that don't natively support cust
     ```js
     // 1) Grab global variable.
     const BrikElement = window.brikcss.BrikElement;
-    // 2) Extend BrikElement with your class/constructor and (optionally) mixins:
+    // 2) Extend BrikElement with your class/constructor and
+    //    (optionally) mixins:
     class MyElement extends BrikElement().with(...mixins) {...}
     // 3) Define the custom element:
     MyElement.define('my-element')

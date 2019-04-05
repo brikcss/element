@@ -1,6 +1,6 @@
 {
   "name": "@brikcss/element",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Brikcss custom UI element, each an extension of native HTML elements. Makes building native web components easier and feature-rich.",
   "dependencies": {},
   "devDependencies": {
@@ -29,10 +29,10 @@
     "serve": "npx browser-sync start --config .browsersyncrc.js",
     "release": "release-it"
   },
-  "files": ["module", "umd", "examples"],
-  "main": "esm/brik-element.js",
-  "module": "esm/brik-element.js",
-  "umd": "umd/brik-element.js",
+  "files": ["dist", "examples"],
+  "main": "dist/esm/brik-element.js",
+  "module": "dist/esm/brik-element.js",
+  "umd": "dist/umd/brik-element.js",
   "keywords": ["brikcss", "element", "html", "web components"],
   "author": "Brikcss (https://github.com/brikcss)",
   "contributors": ["Zimmee <thezimmee@gmail.com>"],

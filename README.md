@@ -34,7 +34,7 @@
 <!-- @todo  Document "TTFC" time of 5 minutes or less. How to create your first meaningful component in 5 minutes or less. -->
 <!-- @todo  Add images to demonstrate the awesomeness of Brikcss Element. -->
 
-Web Components alone provides [many amazing benefits](https://codeburst.io/6-reasons-you-should-use-native-web-components-b45e18e069c2). Brikcss Element extends the awesomeness of Web Components.
+Web Components alone provide [many amazing benefits](https://codeburst.io/6-reasons-you-should-use-native-web-components-b45e18e069c2). Brikcss Element extends the awesomeness of Web Components.
 
 At its core, Brikcss Element a **super** light-weight framework for using Web Components with two main goals:
 
@@ -199,6 +199,17 @@ There are two simple rules for creating mixins:
      };
    ```
 
-[Read this](http://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/) and [this](http://justinfagnani.com/2016/01/07/enhancing-mixins-with-decorator-functions/) for a good resource on JS mixins.
+## Resources
+
+### Web Components
+
+- [Web Components will replace your frontend framework](https://www.dannymoerkerke.com/blog/web-components-will-replace-your-frontend-framework)
+- [MDN web docs: Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+- [Google Web Fundamentals: Building Components](https://developers.google.com/web/fundamentals/web-components/)
+
+### JS Mixins
+
+- [JavaScript mixins with classes](http://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/)
+- [Enhancing mixins with decorators](http://justinfagnani.com/2016/01/07/enhancing-mixins-with-decorator-functions/)
 
 <!-- @todo  Add sections for Credits, Contributors, Resources, Projects using Birkcss Element. -->

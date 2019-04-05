@@ -22,11 +22,10 @@ deploy:
     email: thezimmee@gmail.com
     api_key: $NPM_TOKEN
     skip_cleanup: true
-    on:
-      tags: true
   # Release to GitHub
   - provider: releases
     api_key: $GITHUB_TOKEN
+    draft: true
     file_glob: true
     file:
       - examples/**/*
@@ -36,8 +35,6 @@ deploy:
       - LICENSE.md
       - CHANGELOG.md
     skip_cleanup: true
-    on:
-      tags: true
 
 # Semantic release to NPM and GitHub.
 # deploy:

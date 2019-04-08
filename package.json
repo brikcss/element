@@ -13,7 +13,6 @@
     "coveralls": "^3.0.3",
     "document-register-element": "^1.13.1",
     "jest": "^24.5.0",
-    "release-it": "^10.4.0",
     "rollup": "^1.6.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.1",
@@ -27,8 +26,7 @@
     "cov": "cat coverage/lcov.info | coveralls && cat coverage/lcov.info | codacy-coverage",
     "build": "npx rollup --config=.rolluprc.js",
     "watch": "npm run build -- --watch & npm run serve",
-    "serve": "npx browser-sync start --config .browsersyncrc.js",
-    "release": "release-it"
+    "serve": "npx browser-sync start --config .browsersyncrc.js"
   },
   "files": ["dist", "examples"],
   "main": "dist/esm/brik-element.js",

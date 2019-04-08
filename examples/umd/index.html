@@ -29,24 +29,31 @@
     pre {
       background-color: hsl(0, 0%, 85%);
       border-radius: 0.25rem;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
+    #status {
+      color: red;
     }
   </style>
 </head>
 
 <body>
-  <my-element type="h1">Brik Element as a global variable/UMD</my-element>
-  <my-element type="p">Brik Element can be accessed at: <pre><code>window.brikcss.BrikElement</code></pre></my-element>
+  <my-element type="h1">h1: Brik Element as a global variable/UMD</my-element>
+  <my-element type="p">p: Brik Element can be accessed at: <code>window.brikcss.Element</code></my-element>
 
-  <!-- Custom Elements polyfill. -->
-  <script>/* eslint-disable */this.customElements || document.write('<script src="//unpkg.com/document-register-element"><\x2fscript>')</script>
-  <script src="//unpkg.com/built-in-element"></script>
-  <!-- For modern browsers that support modules. -->
+  <div>
+    <em>Status:</em>
+    <span id="status">Failed.</span>
+  </div>
+
+  <!-- 1. Include the polyfills. -->
+  <script src="//unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-loader.js"></script>
+  <!-- 2. Include module bundle for modern browsers that support modules. -->
   <script type="module" src="../../dist/umd/brik-element.js"></script>
-  <!-- For legacy browsers that do not support modules. -->
+  <!-- 3. Include the nomodule bundle for legacy browsers that do not support modules. -->
   <script nomodule src="../../dist/umd/brik-element.legacy.js"></script>
-  <!-- For all browsers. -->
+  <!-- 4. Include app.js for all browsers. -->
   <script src="app.js" defer></script>
 </body>
 </html>

@@ -17,12 +17,14 @@ template.innerHTML = `
       color: gray;
     }
   </style>
-  <slot></slot>
+  <slot>It failed.</slot>
 `
 
-const LogMixin = (superclass) => class extends superclass {
-  log (value) {
-    console.log(value)
+const StatusMixin = (superclass) => class extends superclass {
+  updateStatus (value) {
+    var el = document.getElementById('status')
+    el.innerHTML = value
+    el.style.color = 'green'
   }
 }
 
@@ -36,7 +38,7 @@ const RenderMixin = (superclass) => class extends superclass {
   }
 }
 
-class MyElement extends BrikElement.with(RenderMixin, LogMixin) {
+class MyElement extends BrikElement.with(RenderMixin, StatusMixin) {
   static get observedAttributes () {
     return ['type']
   }
@@ -51,7 +53,7 @@ class MyElement extends BrikElement.with(RenderMixin, LogMixin) {
     this.attachShadow({ mode: 'open' })
     this.type = this.getAttribute('type')
     this.render()
-    this.log('Nailed it!!')
+    this.updateStatus('Nailed it!!')
     this._initialized = true
   }
 }

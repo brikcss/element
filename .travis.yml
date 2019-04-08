@@ -13,27 +13,40 @@ notifications:
 
 env: NODE_ENV=test
 
-before_script: npm prune -d
-script: npm test -d
+before_script:
+  - npm prune -d
+  - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+script:
+  - npm test -d
 
+# Semantic release to NPM and GitHub.
 deploy:
-  # Publish to NPM
-  - provider: npm
-    email: thezimmee@gmail.com
-    api_key: $NPM_TOKEN
-    skip_cleanup: true
-  # Release to GitHub
-  - provider: releases
-    api_key: $GITHUB_TOKEN
-    draft: true
-    file_glob: true
-    file:
-      - examples/**/*
-      - dist/**/*
-      - README.md
-      - LICENSE.md
-      - CHANGELOG.md
-    skip_cleanup: true
+  provider: script
+  skip_cleanup: true
+  script:
+    - git remote rm origin
+    - git remote add origin https://thezimmee:${GITHUB_TOKEN}@github.com/brikcss/element.git
+    - git remote set-url origin https://thezimmee:${GITHUB_TOKEN}@github.com/brikcss/element.git
+    - npm run release
+
+# deploy:
+#   # Publish to NPM
+#   - provider: npm
+#     email: thezimmee@gmail.com
+#     api_key: $NPM_TOKEN
+#     skip_cleanup: true
+#   # Release to GitHub
+#   - provider: releases
+#     api_key: $GITHUB_TOKEN
+#     draft: true
+#     file_glob: true
+#     file:
+#       - examples/**/*
+#       - dist/**/*
+#       - README.md
+#       - LICENSE.md
+#       - CHANGELOG.md
+#     skip_cleanup: true
 
 # Semantic release to NPM and GitHub.
 # deploy:

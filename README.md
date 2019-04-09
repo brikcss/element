@@ -34,11 +34,14 @@
 <!-- @todo  Document "TTFC" time of 5 minutes or less. How to create your first meaningful component in 5 minutes or less. -->
 <!-- @todo  Add images to demonstrate the awesomeness of Brikcss Element. -->
 
+**<mark>\[ IMPORTANT \]: Brikcss Element follows semantic versioning. Since it is currently at major version zero, ["anything may change at any time", and it "should not be considered stable"](https://semver.org/#spec-item-4).</mark>**
+
 Web Components alone provide [many amazing benefits](https://codeburst.io/6-reasons-you-should-use-native-web-components-b45e18e069c2). Brikcss Element extends the awesomeness of Web Components.
 
 At its core, Brikcss Element a **super** light-weight framework for using Web Components with two main goals:
 
 1. To extend the power and features of Web Components in a way that allows developers and end users to easily implement only features they need.
+
 2. To simplify where possible, _**but not replace or heavily abstract**_, commonly used features in Web Components. In other words, make _TTFC_ ("time to first component") quick and easy.
 
 Brikcss Element prides itself on having a very small learning curve for newbies, while providing unlimited power and flexibility at the same time.
@@ -55,7 +58,7 @@ We ❤️❤️❤️ contributions of any kind, whether it's bug reports, quest
 | ------ | ------- | ------ | ---- | ------ |
 | ✓      | ✓       | ✓      | ✓    | 11\*\* |
 
-\*_With custom elements polyfill._<br>
+\*_With the [proper polyfills](#getting-started)._<br>
 \*\*_IE11 can be supported with a transpiled build for legacy browsers._
 
 ## Install
@@ -72,78 +75,89 @@ Download the [latest release](releases/latest).
 
 ## Getting Started
 
-_**Important:** If you wish to support browsers that don't natively support custom elements, you must include a [custom elements polyfill](https://www.npmjs.com/search?q=custom+elements+polyfill) before any other script. We recommend the [document-register-element](https://www.npmjs.com/package/document-register-element) polyfill for how light-weight it is._
-
--   **JS module:**
-
-    _index.html:_
+1. Include Web Components polyfills. We recommend [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs), included with Brikcss Elements.
 
     ```html
-    <!-- 1) Include app.js for modern browsers: -->
-    <!--    NOTE: Even though this is `type="module"`, for performance
-            reasons, it is recommended to use a build/bundler tool to
-            prebundle app.js. -->
-    <script type="module" src="app.js"></script>
-    <!-- 2) To support legacy browsers, include a version of app.js
-    transpiled specifically for legacy browsers and make sure to add
-    the `nomodule` attribute (modern browsers will not load this): -->
-    <script nomodule src="app.legacy.js"></script>
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     ```
 
-    _app.js:_
+    _See [webcomponentsjs docs](https://github.com/webcomponents/webcomponentsjs) for other ways of inclusion and other useful information._
+
+2. [Decide which Brikcss Element build you will use](./docs/including-brikcss-modules.md). _For simple prototypes/demos, feel free to use the Browser Module. For production applications we strongly encourage the Vanilla Module._ [Why?](./docs/including-brikcss-modules.md)
+
+3. Include it and extend it:
 
     ```js
-    // 1) Import:
-    //    Note: Browsers that support modules do not recognize node
-    //    modules, so for direct use in browsers (i.e., no build/bundler
-    //    step), you must import a full relative or absolute path.
-    import { BrikElement } from "@brikcss/element";
-    // 2) Extend BrikElement with your class/constructor and (optionally)
-    //    mixins:
-    class MyElement extends BrikElement().with(...mixins) {...}
-    // 3) Define the custom element:
-    MyElement.define('my-element')
-    //    which is the same as:
-    window.customElements.define('my-element', MyElement)
+    // app.js
+    // ------
+    // 1) Include it:
+    //    Vanilla module:
+    import BrikElement from '@brikcss/element';
+    //    Browser module:
+    import BrikElement from 'node_modules/@brikcss/element/dist/esm/brik-element.browser.js';
+    //    Universal module:
+    const BrikElement = brikcss.default;
+
+    // 2) Extend it:
+    class MyElement extends BrikElement {
+        constructor(...args) {
+            // If you have a constructor, always call super first.
+            super(args);
+            // Your constructor code...
+        }
+        // Define class methods/properties here...
+    }
     ```
 
--   **Global variable (Browser-friendly UMD):**
+    _Note: The default export automatically extends `HTMLElement`. If you want to extend a different built-in element (i.e., `HTMLAnchorElement`), [use the `BrikElement` named export](#brikelement)._
 
-    _index.html:_
+4. Define your custom element:
+
+    ```js
+    MyElement.define('my-tag', options);
+    // which is equivalent to:
+    window.customElements.define('my-tag', options);
+    ```
+
+5. Finally, use your custom element:
 
     ```html
-    <!-- 1) Include brik-element.js for modern browsers with
-            type="module": -->
-    <script
-        type="module"
-        src="node_modules/@brikcss/element/dist/umd/brik-element.js"
-    ></script>
-    <!-- 2) To support legacy browsers, include the legacy build of
-            brik-element.js and add the `nomodule` attribute: -->
-    <script
-        nomodule
-        src="node_modules/@brikcss/element/dist/umd/brik-element.legacy.js"
-    ></script>
-    <!-- 3) Include app.js with defer attribute to ensure it loads
-            last: -->
-    <script src="app.js" defer></script>
-    ```
-
-    _app.js:_
-
-    ```js
-    // 1) Grab global variable.
-    const BrikElement = window.brikcss.BrikElement;
-    // 2) Extend BrikElement with your class/constructor and
-    //    (optionally) mixins:
-    class MyElement extends BrikElement().with(...mixins) {...}
-    // 3) Define the custom element:
-    MyElement.define('my-element')
-    //    which is the same as:
-    window.customElements.define('my-element', MyElement)
+    <my-tag>...</my-tag>
     ```
 
 ## API
+
+### Module Exports
+
+#### `default`
+
+The default export returns a class that extends `HTMLElement`. Use as follows:
+
+```js
+// ES module (use relative path for Browser module):
+import BrikElement from '@brikcss/element'
+// or Universal module:
+const BrikElement = brikcss.default
+// and then:
+class MyElement extends BrikElement {...}
+```
+
+_Note: The default export is equivalent to calling the `BrikElement` named export as follows: `BrikElement(HTMLElement)`._
+
+#### `BrikElement`
+
+The only named export is `BrikElement`, which allows you to extend built-in HTML Elements (such as `HTMLAnchorElement`):
+
+```js
+// ES module (use relative path for Browser module):
+import { BrikElement } from '@brikcss/element'
+// or Universal module:
+const BrikElement = brikcss.BrikElement
+// and then:
+class MyElement extends BrikElement(HTMLAnchorElement) {...}
+```
+
+Now your element will inherit all the properties of a built-in anchor tag element! _Note: You may need to use a [polyfill for extending built-in elements](https://github.com/ungap/custom-elements-builtin) for this to work in some browsers._
 
 ### Static methods
 
@@ -164,39 +178,13 @@ import MyMixin from 'my-mixin.js'
 class MyElement extends BrikElement.with(MyMixin) {...}
 ```
 
-_Note: You can apply existing mixins or [create your own](#create-your-own-mixins)._
+_Note: You can apply existing mixins or [create your own](./docs/creating-mixins.md)._
 
 ### Instance properties
 
 #### `this.root`
 
 Simple getter/setter which returns (or sets) the root element. By default, this will be `this.shadowRoot` or `this`, depending on whether `shadowRoot` has been attached.
-
-## Create your own mixins
-
-There are two simple rules for creating mixins:
-
-1. A mixin must be a function that returns a subclass:
-
-    ```js
-    const MyMixin = (BaseClass) =>
-        class extends BaseClass {
-            // Define your subclass here...
-        };
-    ```
-
-2. If the mixin has a `constructor()`, make sure to call `super()` so the base/super class constructor gets executed:
-
-    ```js
-    const MyMixin = (BaseClass) =>
-        class extends BaseClass {
-            constructor(...args) {
-                super(args);
-                // Your subclass constructor goes here...
-            }
-            // Define subclass methods/properties here...
-        };
-    ```
 
 ## Resources
 
@@ -205,10 +193,5 @@ There are two simple rules for creating mixins:
 -   [Web Components will replace your frontend framework](https://www.dannymoerkerke.com/blog/web-components-will-replace-your-frontend-framework)
 -   [MDN web docs: Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 -   [Google Web Fundamentals: Building Components](https://developers.google.com/web/fundamentals/web-components/)
-
-### JS Mixins
-
--   [JavaScript mixins with classes](http://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/)
--   [Enhancing mixins with decorators](http://justinfagnani.com/2016/01/07/enhancing-mixins-with-decorator-functions/)
 
 <!-- @todo  Add sections for Credits, Contributors, Resources, Projects using Birkcss Element. -->

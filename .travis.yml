@@ -30,6 +30,7 @@ deploy:
     file:
       - examples/**/*
       - dist/**/*
+      - docs/**/*
       - README.md
       - LICENSE.md
       - CHANGELOG.md

@@ -71,7 +71,7 @@ npm install -D @brikcss/element
 
 **From GitHub:**
 
-Download the [latest release](releases/latest).
+Download the [latest release](https://github.com/brikcss/element/releases/latest).
 
 ## Getting Started
 
@@ -81,7 +81,7 @@ Download the [latest release](releases/latest).
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     ```
 
-    _See [webcomponentsjs docs](https://github.com/webcomponents/webcomponentsjs) for other ways of inclusion and other useful information._
+    _[Learn more about this and other Web Components polyfills](./docs/web-components-polyfills.md)._
 
 2. [Decide which Brikcss Element build you will use](./docs/including-brikcss-modules.md). _For simple prototypes/demos, feel free to use the Browser Module. For production applications we strongly encourage the Vanilla Module._ [Why?](./docs/including-brikcss-modules.md)
 
@@ -114,15 +114,17 @@ Download the [latest release](releases/latest).
 4. Define your custom element:
 
     ```js
-    MyElement.define('my-tag', options);
+    MyElement.define('my-element', options);
     // which is equivalent to:
-    window.customElements.define('my-tag', options);
+    window.customElements.define('my-element', MyElement, options);
     ```
+
+    _Note: Per Custom Elements specifications, all custom element tags **must** have at least one hyphen (`-`)._
 
 5. Finally, use your custom element:
 
     ```html
-    <my-tag>...</my-tag>
+    <my-element>...</my-element>
     ```
 
 ## API

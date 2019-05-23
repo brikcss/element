@@ -2,9 +2,15 @@
 
 module.exports = {
   linters: {
+    'dist/**/*.js': [
+      'npx node-minify --compressor uglify-es --input *.js --output $1.js',
+      'git add'
+    ],
     '*.js': ['standard --fix', 'git add'],
     '*.json': ['prettier --parser json --write', 'git add'],
-    '*.md': ['prettier --parser markdown --write', 'git add']
+    '*.{yml,yaml}': ['prettier --parser yaml --write', 'git add'],
+    '*.md': ['prettier --parser markdown --write', 'git add'],
+    '*.html': ['prettier --parser html --write', 'git add']
   },
   concurrent: true,
   globOptions: {

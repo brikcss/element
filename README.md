@@ -36,15 +36,15 @@
 
 **<mark>\[ IMPORTANT \]: Brikcss Element follows semantic versioning. Since it is currently at major version zero, ["anything may change at any time", and it "should not be considered stable"](https://semver.org/#spec-item-4).</mark>**
 
-Web Components alone provide [many amazing benefits](https://codeburst.io/6-reasons-you-should-use-native-web-components-b45e18e069c2). Brikcss Element extends the awesomeness of Web Components.
+Native Web Components provide [many](https://duckduckgo.com/?q=why+native+web+components) [amazing](https://codeburst.io/6-reasons-you-should-use-native-web-components-b45e18e069c2) [benefits](https://duckduckgo.com/?q=benefits+of+native+web+components) traditionally only found in frameworks like Angular, Vue, or React. Web Components, however, have [many advantages over these types of frameworks](https://duckduckgo.com/?q=web+components+or+framework), and [should eventually replace them](https://blog.usejournal.com/web-components-will-replace-your-frontend-framework-3b17a580831c). The challenge with Web Components is that they are new and have a fair amount of boilerplate to write custom elements and components. Enter Brikcss Element.
 
-At its core, Brikcss Element a **super** light-weight framework for using Web Components with two main goals:
+Brikcss Element is a **super lightweight** framework that simplifies and extends the awesomeness of native Web Components. At its core, Brikcss Element has two primary goals:
 
 1. To extend the power and features of Web Components in a way that allows developers and end users to easily implement only features they need.
 
 2. To simplify where possible, _**but not replace or heavily abstract**_, commonly used features in Web Components. In other words, make _TTFC_ ("time to first component") quick and easy.
 
-Brikcss Element prides itself on having a very small learning curve for newbies, while providing unlimited power and flexibility at the same time.
+Brikcss Element strives for a very small learning curve for newbies, while also providing a high level of power and flexibility.
 
 ## Contributing
 

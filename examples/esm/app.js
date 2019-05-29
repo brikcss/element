@@ -1,4 +1,4 @@
-import BrikElement from '../../dist/esm/brik-element.js'
+import BrikElement from '../../dist/esm/element.modern.js'
 
 // -------------------------------------------------------------------------------------------------
 // Custom Element code.

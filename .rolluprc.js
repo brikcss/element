@@ -5,11 +5,7 @@ export default configGen.create(
   [
     {
       type: 'browser',
-      id: 'element',
-      input: 'src/brik-element.js',
-      output: {
-        banner: configGen.createBanner()
-      }
+      input: 'src/brik-element.js'
     }
   ],
   {

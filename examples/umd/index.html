@@ -1,59 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Brik Element</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Brik Element</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    body {
-      font-size: 16px;
-      font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-      text-align: center;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-    my-element {
-      color: brown;
-    }
-    my-element h1 {
-      color:; red;
-    }
-    pre {
-      background-color: hsl(0, 0%, 85%);
-      border-radius: 0.25rem;
-      padding-left: 0.25rem;
-      padding-right: 0.25rem;
-    }
-    #status {
-      color: red;
-    }
-  </style>
-</head>
+    <style>
+      body {
+        font-size: 16px;
+        font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      my-element {
+        color: brown;
+      }
+      my-element h1 {
+        color:; red;
+      }
+      pre {
+        background-color: hsl(0, 0%, 85%);
+        border-radius: 0.25rem;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+      }
+      #status {
+        color: red;
+      }
+    </style>
+  </head>
 
-<body>
-  <my-element type="h1">h1: Brik Element as a global variable/UMD</my-element>
-  <my-element type="p">p: Brik Element can be accessed at: <code>window.brikcss.Element</code></my-element>
+  <body>
+    <my-element type="h1">h1: Brik Element as a global variable/UMD</my-element>
+    <my-element type="p"
+      >p: Brik Element can be accessed at: <code>window.brikcss.Element</code></my-element
+    >
 
-  <div>
-    <em>Status:</em>
-    <span id="status">Failed.</span>
-  </div>
+    <div>
+      <em>Status:</em>
+      <span id="status">Failed.</span>
+    </div>
 
-  <!-- 1. Include the polyfills. -->
-  <script src="//unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-loader.js"></script>
-  <!-- 2. Include module bundle for modern browsers that support modules. -->
-  <script type="module" src="../../dist/umd/brik-element.js"></script>
-  <!-- 3. Include the nomodule bundle for legacy browsers that do not support modules. -->
-  <script nomodule src="../../dist/umd/brik-element.legacy.js"></script>
-  <!-- 4. Include app.js for all browsers. -->
-  <script src="app.js" defer></script>
-</body>
+    <!-- 1. Include the polyfills. -->
+    <script src="//unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-loader.js"></script>
+    <!-- 2. Include module bundle for modern browsers that support modules. -->
+    <script type="module" src="../../dist/umd/element.js"></script>
+    <!-- 3. Include the nomodule bundle for legacy browsers that do not support modules. -->
+    <script nomodule src="../../dist/umd/element.legacy.js"></script>
+    <!-- 4. Include app.js for all browsers. -->
+    <script src="app.js" defer></script>
+  </body>
 </html>

@@ -14,7 +14,7 @@
     "browser-sync": "^2.26.5",
     "codacy-coverage": "^3.4.0",
     "conventional-changelog-cli": "^2.0.21",
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.5",
     "jest": "^24.8.0",
     "rimraf": "^2.6.3",
     "rollup": "^1.12.4",

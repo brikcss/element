@@ -16,7 +16,7 @@
     "conventional-changelog-cli": "^2.0.21",
     "coveralls": "^3.0.3",
     "jest": "^24.8.0",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.0",
     "rollup": "^1.12.4",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",

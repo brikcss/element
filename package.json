@@ -3,7 +3,7 @@
   "version": "0.1.6",
   "description": "Brikcss custom UI element, each an extension of native HTML elements. Makes building native web components easier and feature-rich.",
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.10"
+    "@webcomponents/webcomponentsjs": "^2.3.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.5",

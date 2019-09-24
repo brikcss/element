@@ -6,7 +6,7 @@
     "@webcomponents/webcomponentsjs": "^2.2.10"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-env": "^7.6.2",
     "@brikcss/git-hooks": "^2.2.1",
     "@brikcss/merge": "^1.1.0",
     "@brikcss/rollup-config-generator": "0.0.14",

@@ -13,7 +13,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "browser-sync": "^2.26.5",
     "codacy-coverage": "^3.4.0",
-    "conventional-changelog-cli": "^2.0.21",
+    "conventional-changelog-cli": "^2.0.25",
     "coveralls": "^3.0.3",
     "jest": "^24.8.0",
     "rimraf": "^2.6.3",

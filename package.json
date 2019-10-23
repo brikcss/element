@@ -9,7 +9,7 @@
     "@babel/preset-env": "^7.4.5",
     "@brikcss/git-hooks": "^2.2.1",
     "@brikcss/merge": "^1.1.0",
-    "@brikcss/rollup-config-generator": "0.0.14",
+    "@brikcss/rollup-config-generator": "0.0.16",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "browser-sync": "^2.26.5",
     "codacy-coverage": "^3.4.0",
